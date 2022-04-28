@@ -48,15 +48,13 @@ CREATE TABLE Pozajmica(
 -- Kreiranje stor procedura:
 
 CREATE PROCEDURE Korisnik_Email
-@ime NVARCHAR(50),
-@prezime NVARCHAR(100),
 @email NVARCHAR(100),
 @lozinka NVARCHAR(50)
 AS
 SET LOCK_TIMEOUT 3000;
 BEGIN TRY
   IF EXISTS(SELECT TOP 1 email FROM Korisnik
-            WHERE (ime = @ime) AND (prezime = @prezime) AND (email = @email) AND (lozinka = @lozinka))            
+            WHERE (email = @email) AND (lozinka = @lozinka))            
   BEGIN
     RETURN 0;
   END
