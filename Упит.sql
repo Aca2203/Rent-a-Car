@@ -34,6 +34,11 @@ CREATE TABLE Korisnik(
   uloga INT NOT NULL
 );
 
+INSERT INTO Korisnik (ime, prezime, email, lozinka, uloga) VALUES ('Aleksandar', 'Stefanovic', 'aleksandar.stefanovic@prva.rs', 'coamafija1312', 1);
+
+SELECT *
+FROM Korisnik;
+
 CREATE TABLE Pozajmica(
   id INT PRIMARY KEY IDENTITY(1, 1),
   korisnik_id INT FOREIGN KEY REFERENCES Korisnik(id),
